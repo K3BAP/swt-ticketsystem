@@ -36,3 +36,10 @@
 - AdministratorIn wählt "Zeitkarten"
 - System zeigt ein Formular, das die nötigen Daten abfragt: Name des Tarifs, Gültigkeitsdauer, Tarifzonen, Preis, ...
 - AdministratorIn gibt die Daten ein und klickt auf "Speichern".
+
+## Szenarien der Nutzung des Systems durch Personas
+### Peter
+Als SWT-Administrator möchte Peter ein möglichst effizientes System, mit dem er schnell und einfach seine Aufgaben erledigen kann. Durch die Inflation passen die SWT zurzeit sehr häufig Preise an, weshalb es Peter wichtig ist, dass Funktionen, die er als Administrator hat, leicht aufrufbar und anpassbar sind. Das heißt, dass Peter gerne ein System benutzen möchte, welches eine gute Learnability, sowie Effizienz aufweist. 
+
+### Helga
+Die 78-jährige Helga und ihr Mann Günther (79 Jahre) wollen den Samstag Nachmittag in der Stadt verbringen und ein neues Parfum für Helga kaufen. Da es nun das neue Ticketsystem der SWT gibt, wollen sie es damit versuchen. Am Anfang werden sie aufgefordert ihre Verbindung raus zu suchen. Sie geben also ihren Wohnort als Start und den Parfum-Laden als Zielort an und klicken auf „Suchen“. Nun werden ihnen die verschiedenen Verbindungen angezeigt, sie können sich die passende auswählen und direkt auf „Kaufen“ klicken. Sie bekommen eine E-Mail und können sie auf dem Smartphone öffnen. Nun sehen sie ihr Ticket auf dem Smartphone und können es so einfach dem Schaffner vorzeigen. Am Ende sind beide glücklich, dass das Kaufen des Tickets so einfach funktioniert hat.
