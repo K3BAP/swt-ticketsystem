@@ -1,15 +1,21 @@
 <template>
-  <hello-world />
+  <v-container>
+    <v-row class="text-center" justify="center">
+      <v-col cols="6" class="mt-5">
+        <search-connection-form />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld'
+import SearchConnectionForm from '../components/SearchConnectionForm.vue'
 
 export default {
   name: 'HomeTest',
 
   components: {
-    HelloWorld
+    SearchConnectionForm
   }
 }
 </script>
