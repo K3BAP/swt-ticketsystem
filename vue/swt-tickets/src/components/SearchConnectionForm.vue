@@ -82,8 +82,11 @@
               ></v-time-picker>
             </v-menu>
           </v-col>
-          <v-btn class="mb-3 ms-5 me-3">
+          <v-btn class="primary mb-3 ms-5 me-3" @click="onSearchClick">
             Suchen
+          </v-btn>
+          <v-btn class="mb-3 ms-5 me-3" @click="onConfigureClick">
+            Ticket selbst konfigurieren
           </v-btn>
         </v-row>
       </v-form>
@@ -92,6 +95,8 @@
 </template>
 
 <script>
+import router from '@/router'
+
 const timeNow = new Intl.DateTimeFormat('de-DE', { timeStyle: 'short' }).format(new Date())
 export default {
   name: 'SearchConnectionForm',
@@ -104,6 +109,14 @@ export default {
     }
   },
   components: {
+  },
+  methods: {
+    onSearchClick () {
+      router.push('/search')
+    },
+    onConfigureClick () {
+      router.push('/configure')
+    }
   }
 }
 </script>
