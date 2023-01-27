@@ -9,7 +9,7 @@
         <v-img
           role="button"
           alt="SWT Logo"
-          class="shrink mt-1 hidden-sm-and-down"
+          class="shrink mt-1"
           contain
           min-width="100"
           :src="require('./assets/swt_logo.png')"
