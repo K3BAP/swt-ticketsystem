@@ -95,6 +95,7 @@ export default {
       }
       if ($isAdmin === false) {
         this.loggedIn = 'user'
+        this.gotoHome()
       }
     },
     logout () {
