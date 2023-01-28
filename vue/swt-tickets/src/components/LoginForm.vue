@@ -18,6 +18,14 @@
               type="password">
             </v-text-field>
           </v-col>
+          <v-col>
+            <v-btn class="primary me-1" @click="loginUser">
+              User Login
+            </v-btn>
+            <v-btn class="primary me-1" @click="loginAdmin">
+              Admin Login
+            </v-btn>
+          </v-col>
         </v-row>
       </v-form>
     </v-card>
@@ -26,6 +34,14 @@
 
 <script>
 export default {
-  name: 'LoginForm'
+  name: 'LoginForm',
+  methods: {
+    loginUser () {
+      this.$emit('login', false)
+    },
+    loginAdmin () {
+      this.$emit('login', true)
+    }
+  }
 }
 </script>

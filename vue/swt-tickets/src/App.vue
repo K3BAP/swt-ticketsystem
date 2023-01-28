@@ -21,16 +21,25 @@
       <v-spacer></v-spacer>
 
       <v-btn
+        v-if="loggedIn === 'nobody'"
         @click="gotoLogin"
         target="_blank"
         text
       >
         <span class="mr-2">Einloggen</span>
       </v-btn>
+      <v-btn
+        v-else
+        @click="logout"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Ausloggen</span>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <router-view @login="login($event)"/>
     </v-main>
 
     <v-footer
@@ -70,7 +79,8 @@ export default {
       'Team',
       'Services',
       'Kontakt'
-    ]
+    ],
+    loggedIn: 'nobody'
   }),
   methods: {
     gotoHome () {
@@ -78,6 +88,17 @@ export default {
     },
     gotoLogin () {
       router.push('login')
+    },
+    login ($isAdmin) {
+      if ($isAdmin === true) {
+        this.loggedIn = 'admin'
+      }
+      if ($isAdmin === false) {
+        this.loggedIn = 'user'
+      }
+    },
+    logout () {
+      this.loggedIn = 'nobody'
     }
   }
 }
