@@ -75,24 +75,56 @@
         nav
         dense
       >
+        <v-divider class="mb-2"></v-divider>
         <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
+          v-model="selectedNavItem"
+          active-class="primary--text text--accent-4"
         >
-          <v-list-item>
-            <v-list-item-title>Foo</v-list-item-title>
+          <v-list-item
+            v-if="loggedIn === 'nobody'"
+            value="login"
+            @click="gotoLogin">
+            <v-list-item-icon>
+              <v-icon> mdi-login </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Einloggen</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
-            <v-list-item-title>Bar</v-list-item-title>
+          <v-list-item
+            v-if="loggedIn !== 'admin'"
+            value="home"
+            @click="gotoHome">
+            <v-list-item-icon>
+              <v-icon> mdi-view-dashboard </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Startseite</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
-            <v-list-item-title>Fizz</v-list-item-title>
+          <v-list-item
+            v-if="loggedIn === 'user'"
+            value="tickets">
+            <v-list-item-icon>
+              <v-icon> mdi-ticket </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Meine Tickets</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
-            <v-list-item-title>Buzz</v-list-item-title>
+          <v-list-item
+            v-if="loggedIn === 'user'"
+            value="settings">
+            <v-list-item-icon>
+              <v-icon> mdi-cog </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Einstellungen</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item
+            v-if="loggedIn === 'admin'"
+            value="tarife">
+            <v-list-item-icon>
+              <v-icon> mdi-view-dashboard </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Tarifübersicht</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -142,14 +174,17 @@ export default {
     ],
     loggedIn: 'nobody',
     drawer: false,
-    group: null
+    selectedNavItem: null
   }),
   methods: {
     gotoHome () {
       router.push('/')
+      console.log(this.selectedNavItem)
+      this.selectedNavItem = 'home'
     },
     gotoLogin () {
       router.push('login')
+      this.selectedNavItem = 'login'
     },
     login ($isAdmin) {
       if ($isAdmin === true) {
