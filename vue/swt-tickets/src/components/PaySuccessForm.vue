@@ -1,9 +1,9 @@
 <template>
-<h1>Ticket konfigurieren</h1>
+  <h1>Bestätigung</h1>
 </template>
 
 <script>
 export default {
-  name: 'ConfigureTicketView'
+  name: 'PaySuccessForm'
 }
 </script>

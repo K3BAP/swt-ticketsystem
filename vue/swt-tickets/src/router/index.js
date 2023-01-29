@@ -18,12 +18,18 @@ const routes = [
   {
     path: '/search',
     name: 'search',
-    component: () => import('../views/ListResultsView.vue')
+    props: {
+      beginStage: 0
+    },
+    component: () => import('../views/BuyTicketView.vue')
   },
   {
     path: '/configure',
     name: 'configure',
-    component: () => import('../views/ConfigureTicketView.vue')
+    props: {
+      beginStage: 1
+    },
+    component: () => import('../views/BuyTicketView.vue')
   },
   {
     path: '/tarife',

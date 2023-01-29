@@ -27,7 +27,7 @@
         target="_blank"
         text
       >
-        <span class="mr-2">Einloggen</span>
+        <span class="mr-2">Anmelden</span>
       </v-btn>
       <v-btn
         v-else
@@ -35,7 +35,7 @@
         target="_blank"
         text
       >
-        <span class="mr-2">Ausloggen</span>
+        <span class="mr-2">Abmelden</span>
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer
@@ -67,7 +67,7 @@
             <img alt="Profilbild" src="https://w7.pngwing.com/pngs/348/769/png-transparent-computer-icons-user-profile-material-design-profile-monochrome-black-account-thumbnail.png">
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title>Nicht Eingeloggt</v-list-item-title>
+            <v-list-item-title>Nicht angemeldet</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </template>

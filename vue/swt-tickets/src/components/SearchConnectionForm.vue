@@ -86,7 +86,7 @@
             Suchen
           </v-btn>
           <v-btn class="mb-3 ms-5 me-3" @click="onConfigureClick">
-            Ticket selbst konfigurieren
+            Direkt zur Tarifauswahl
           </v-btn>
         </v-row>
       </v-form>
