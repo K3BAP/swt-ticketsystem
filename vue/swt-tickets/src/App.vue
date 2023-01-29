@@ -88,7 +88,7 @@
             <v-list-item-icon>
               <v-icon> mdi-login </v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Einloggen</v-list-item-title>
+            <v-list-item-title>Anmelden</v-list-item-title>
           </v-list-item>
 
           <v-list-item
