@@ -5,6 +5,7 @@
       color="primary"
       dark
     >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="me-2"></v-app-bar-nav-icon>
       <div class="d-flex align-center">
         <v-img
           role="button"
@@ -37,6 +38,65 @@
         <span class="mr-2">Ausloggen</span>
       </v-btn>
     </v-app-bar>
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <template v-slot:prepend>
+        <v-list-item two-line v-if="loggedIn === 'user'">
+          <v-list-item-avatar>
+            <img alt="Profilbild" src="https://randomuser.me/api/portraits/women/81.jpg">
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>Jane Smith</v-list-item-title>
+            <v-list-item-subtitle v-if="loggedIn === 'user'">Angemeldet</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item two-line v-else-if="loggedIn === 'admin'">
+          <v-list-item-avatar>
+            <img alt="Profilbild" src="https://randomuser.me/api/portraits/men/64.jpg">
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>Kenneth Perry</v-list-item-title>
+            <v-list-item-subtitle>Administrator</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item two-line v-else>
+          <v-list-item-avatar>
+            <img alt="Profilbild" src="https://w7.pngwing.com/pngs/348/769/png-transparent-computer-icons-user-profile-material-design-profile-monochrome-black-account-thumbnail.png">
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>Nicht Eingeloggt</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item>
+            <v-list-item-title>Foo</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Bar</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Fizz</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Buzz</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main>
       <router-view @login="login($event)"/>
@@ -80,7 +140,9 @@ export default {
       'Services',
       'Kontakt'
     ],
-    loggedIn: 'nobody'
+    loggedIn: 'nobody',
+    drawer: false,
+    group: null
   }),
   methods: {
     gotoHome () {
@@ -100,6 +162,12 @@ export default {
     },
     logout () {
       this.loggedIn = 'nobody'
+      this.gotoHome()
+    }
+  },
+  watch: {
+    group () {
+      this.drawer = false
     }
   }
 }
