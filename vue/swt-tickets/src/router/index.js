@@ -24,6 +24,11 @@ const routes = [
     path: '/configure',
     name: 'configure',
     component: () => import('../views/ConfigureTicketView.vue')
+  },
+  {
+    path: '/tarife',
+    name: 'tarife',
+    component: () => import('../views/TarifuebersichtView.vue')
   }
 ]
 

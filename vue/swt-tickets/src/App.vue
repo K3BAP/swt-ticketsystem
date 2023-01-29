@@ -78,6 +78,7 @@
         <v-divider class="mb-2"></v-divider>
         <v-list-item-group
           v-model="selectedNavItem"
+          mandatory
           active-class="primary--text text--accent-4"
         >
           <v-list-item
@@ -120,7 +121,8 @@
 
           <v-list-item
             v-if="loggedIn === 'admin'"
-            value="tarife">
+            value="tarife"
+            @click="gotoTarife">
             <v-list-item-icon>
               <v-icon> mdi-view-dashboard </v-icon>
             </v-list-item-icon>
@@ -168,8 +170,6 @@ export default {
     links: [
       'Datenschutz',
       'Impressum',
-      'Team',
-      'Services',
       'Kontakt'
     ],
     loggedIn: 'nobody',
@@ -178,17 +178,24 @@ export default {
   }),
   methods: {
     gotoHome () {
-      router.push('/')
-      console.log(this.selectedNavItem)
-      this.selectedNavItem = 'home'
+      if (this.loggedIn !== 'admin') {
+        router.push('/')
+        console.log(this.selectedNavItem)
+        this.selectedNavItem = 'home'
+      } else this.gotoTarife()
     },
     gotoLogin () {
       router.push('login')
       this.selectedNavItem = 'login'
     },
+    gotoTarife () {
+      router.push('tarife')
+      this.selectedNavItem = 'tarife'
+    },
     login ($isAdmin) {
       if ($isAdmin === true) {
         this.loggedIn = 'admin'
+        this.gotoTarife()
       }
       if ($isAdmin === false) {
         this.loggedIn = 'user'
