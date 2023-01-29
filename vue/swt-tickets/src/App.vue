@@ -132,7 +132,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main>
+    <v-main v-touch="{ right() {drawer = true}}">
       <router-view @login="login($event)"/>
     </v-main>
 
