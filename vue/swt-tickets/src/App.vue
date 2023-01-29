@@ -180,7 +180,6 @@ export default {
     gotoHome () {
       if (this.loggedIn !== 'admin') {
         router.push('/')
-        console.log(this.selectedNavItem)
         this.selectedNavItem = 'home'
       } else this.gotoTarife()
     },
