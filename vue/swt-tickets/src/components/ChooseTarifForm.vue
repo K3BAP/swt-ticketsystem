@@ -8,28 +8,27 @@
           :value="selectedTarif"
           label="Ticket-Typ"
           dense
-          solo
         ></v-select>
       </v-col>
       <v-col cols="12" sm="6">
         <v-select
           :items="zonen"
           label="Von"
+          :value="selectedStartZone"
           dense
-          solo
         ></v-select>
       </v-col>
       <v-col cols="12" sm="6">
         <v-select
           :items="zonen"
           label="Nach"
+          :value="selectedEndZone"
           dense
-          solo
         ></v-select>
       </v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-menu
           v-model="showTimeMenu"
@@ -57,7 +56,7 @@
       </v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-menu
           ref="menu"
@@ -99,16 +98,17 @@
 </template>
 
 <script>
-const timeNow = new Intl.DateTimeFormat('de-DE', { timeStyle: 'short' }).format(new Date())
 export default {
   name: 'ChooseTarifForm',
   data () {
     return {
-      selectedTime: timeNow,
+      selectedTime: null,
       selectedDate: null,
+      selectedStartZone: null,
+      selectedEndZone: null,
       showTimeMenu: false,
       showDateMenu: false,
-      selectedTarif: null,
+      selectedTarif: 'Einzelticket',
       tarife: [
         'Einzelticket',
         '4-Fahrten-Ticket',
@@ -122,6 +122,25 @@ export default {
         'Tarifzone 3 (Trier-Südwest)',
         'Tarifzone 4 (Trier-Südost)'
       ]
+    }
+  },
+  props: ['initialTime', 'initialDate', 'initialStart', 'initialEnd'],
+  created () {
+    if (this.initialTime != null) {
+      this.selectedTime = this.initialTime
+    } else {
+      this.selectedTime = new Intl.DateTimeFormat('de-DE', { timeStyle: 'short' }).format(new Date())
+    }
+    if (this.initialDate != null) {
+      this.selectedDate = this.initialDate
+    } else {
+      this.selectedDate = new Date().toISOString().substring(0, 10)
+    }
+    if (this.initialStart != null) {
+      this.selectedStartZone = this.zonen[this.initialStart]
+    }
+    if (this.initialEnd != null) {
+      this.selectedEndZone = this.zonen[this.initialEnd]
     }
   }
 }

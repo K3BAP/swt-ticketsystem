@@ -21,7 +21,7 @@
           </v-col>
           <v-col
             cols="12"
-            md="6"
+            sm="6"
           >
             <v-menu
               v-model="menu1"
@@ -49,7 +49,7 @@
           </v-col>
           <v-col
             cols="12"
-            md="6"
+            sm="6"
           >
             <v-menu
               ref="menu"
@@ -98,12 +98,13 @@
 import router from '@/router'
 
 const timeNow = new Intl.DateTimeFormat('de-DE', { timeStyle: 'short' }).format(new Date())
+const dateNow = new Date().toISOString().substring(0, 10)
 export default {
   name: 'SearchConnectionForm',
   data () {
     return {
       time: timeNow,
-      date: null,
+      date: dateNow,
       menu1: false,
       menu2: false
     }

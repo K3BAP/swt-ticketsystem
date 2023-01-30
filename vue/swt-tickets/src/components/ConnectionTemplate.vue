@@ -1,5 +1,5 @@
 <template>
-<v-card :elevation="5" class="my-2" v-ripple>
+<v-card :elevation="5" class="my-2" v-ripple @click="onClick">
   <v-container>
     <v-row>
       <v-col cols="8">
@@ -18,6 +18,11 @@
 <script>
 export default {
   name: 'ConnectionTemplate',
-  props: ['connection']
+  props: ['connection'],
+  methods: {
+    onClick () {
+      this.$emit('click')
+    }
+  }
 }
 </script>

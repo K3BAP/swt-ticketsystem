@@ -25,15 +25,16 @@
     class="mt-5">
     <v-container>
       <v-row class="pa-3">
-        <ChooseConnectionForm v-if="stage === 0" :connections="connections"/>
-        <ChooseTarifForm v-if="stage === 1"/>
-        <PayForm v-if="stage === 2"/>
+        <ChooseConnectionForm v-if="stage === 0" :connections="connections" @gotoTarife="gotoTarife($event)"/>
+        <ChooseTarifForm v-if="stage === 1" :initial-time="selectedTime" :initial-start="selectedStartZone" :initial-end="selectedEndZone"/>
+        <PayForm v-if="stage === 2" @success="next"/>
         <PaySuccessForm v-if="stage === 3"/>
       </v-row>
       <v-row class="pa-3">
-        <v-btn @click="prev">zurück</v-btn>
+        <v-btn v-if="stage <3" @click="prev">zurück</v-btn>
         <v-spacer/>
-        <v-btn class="primary" @click="next">weiter</v-btn>
+        <v-btn v-if="stage === 0" class="primary" @click="next">direkt zur Tarifauswahl</v-btn>
+        <v-btn v-if="stage === 1" class="primary" @click="next">weiter</v-btn>
       </v-row>
     </v-container>
   </v-card>
@@ -51,6 +52,9 @@ export default {
   name: 'ListResultsView',
   data () {
     return {
+      selectedTime: null,
+      selectedStartZone: null,
+      selectedEndZone: null,
       stage: 0,
       connections: [
         {
@@ -123,6 +127,12 @@ export default {
       if (this.stage > 0) {
         this.stage--
       } else router.push('/')
+    },
+    gotoTarife (time) {
+      this.selectedTime = time
+      this.selectedStartZone = 0
+      this.selectedEndZone = 2
+      this.next()
     }
   },
   props: ['beginStage'],
