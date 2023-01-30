@@ -7,7 +7,7 @@
         <v-btn class="primary me-2">
           Ticket anzeigen
         </v-btn>
-        <v-btn>
+        <v-btn @click="backToStart">
           Zurück zum Startbildschirm
         </v-btn>
       </v-col>
@@ -16,7 +16,14 @@
 </template>
 
 <script>
+import router from '@/router'
+
 export default {
-  name: 'PaySuccessForm'
+  name: 'PaySuccessForm',
+  methods: {
+    backToStart () {
+      router.push('/')
+    }
+  }
 }
 </script>
