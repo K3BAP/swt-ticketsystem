@@ -4,10 +4,10 @@
     Du findest dein Ticket nun in deinem Account unter "Meine Tickets" und dir wurde ein druckbares Ticket per E-Mail zugesandt.
     <v-row class="mt-2">
       <v-col>
-        <v-btn class="primary me-2">
+        <v-btn class="primary me-2 mb-2">
           Ticket anzeigen
         </v-btn>
-        <v-btn @click="backToStart">
+        <v-btn class="me-2 mb-2" @click="backToStart">
           Zurück zum Startbildschirm
         </v-btn>
       </v-col>
