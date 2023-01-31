@@ -30,8 +30,8 @@
           <v-row class="pa-3">
             <ChooseConnectionForm v-if="stage === 0" :connections="connections" @gotoTarife="gotoTarife($event)"/>
             <ChooseTarifForm v-if="stage === 1" :initial-time="selectedTime" :initial-start="selectedStartZone" :initial-end="selectedEndZone"/>
-            <PayForm v-if="stage === 2" @success="next"/>
-            <PaySuccessForm v-if="stage === 3"/>
+            <PayForm v-if="stage === 2" @success="next" :logged-in="loggedIn"/>
+            <PaySuccessForm v-if="stage === 3" :loggedIn="loggedIn" @showTicket="showTicketClick"/>
           </v-row>
           <v-row class="pa-3">
             <v-btn v-if="stage <3" @click="prev">zurück</v-btn>
@@ -118,7 +118,14 @@ export default {
           price: '3.20 €',
           vehicle: '1'
         }
-      ]
+      ],
+      ticket: {
+        type: 'Einzelticket',
+        from: 'Trier HBF',
+        to: 'Euren Helenenbrunnen',
+        fromZone: 'Zone 1',
+        toZone: 'Zone 3'
+      }
     }
   },
   components: { PaySuccessForm, PayForm, ChooseTarifForm, ChooseConnectionForm },
@@ -138,9 +145,18 @@ export default {
       this.selectedStartZone = 0
       this.selectedEndZone = 2
       this.next()
+    },
+    showTicketClick () {
+      this.showTicket(this.ticket)
+    },
+    showTicket (ticket) {
+      this.$router.push({
+        name: 'ticket',
+        params: { ticket: ticket }
+      })
     }
   },
-  props: ['beginStage'],
+  props: ['beginStage', 'loggedIn'],
   created () {
     this.stage = this.beginStage
   }

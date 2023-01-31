@@ -13,7 +13,10 @@ export default {
   components: { MyTicketsTicketTemplate },
   methods: {
     showTicket (ticket) {
-      this.$router.push({ name: 'ticket', params: { ticket: ticket } })
+      this.$router.push({
+        name: 'ticket',
+        params: { ticket: ticket }
+      })
     }
   },
   props: ['tickets']

@@ -67,7 +67,7 @@
     </v-row>
     <v-row justify="center">
         <v-btn class="mt-3" @click="goBack">
-          zurück
+          alle Tickets
         </v-btn>
     </v-row>
   </v-container>

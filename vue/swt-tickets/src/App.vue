@@ -134,7 +134,7 @@
     </v-navigation-drawer>
 
     <v-main v-touch="{ right() {drawer = true}}">
-      <router-view @login="login($event)"/>
+      <router-view @login="login($event)" :loggedIn="loggedIn"/>
     </v-main>
 
     <v-footer
