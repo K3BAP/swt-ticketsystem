@@ -35,6 +35,16 @@ const routes = [
     path: '/tarife',
     name: 'tarife',
     component: () => import('../views/TarifuebersichtView.vue')
+  },
+  {
+    path: '/mytickets',
+    name: 'mytickets',
+    component: () => import('../views/MyTicketsView.vue')
+  },
+  {
+    path: '/ticket',
+    name: 'ticket',
+    component: () => import('../views/ShowTicketView.vue')
   }
 ]
 
