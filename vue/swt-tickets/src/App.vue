@@ -175,7 +175,7 @@ export default {
     ],
     loggedIn: 'nobody',
     drawer: false,
-    selectedNavItem: null
+    selectedNavItem: 'home'
   }),
   methods: {
     gotoHome () {
