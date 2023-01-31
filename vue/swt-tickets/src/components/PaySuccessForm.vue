@@ -3,15 +3,13 @@
     <h1>Kauf erfolgreich!</h1>
     <div v-if="loggedIn === 'user'"> Du findest dein Ticket nun in deinem Account unter "Meine Tickets" und dir wurde ein druckbares Ticket per E-Mail zugesandt. </div>
     <div v-else> Dir wurde ein druckbares Ticket per E-Mail zugesandt. Melde dich an, um deine Tickets direkt auf dieser Webseite zu verwalten.</div>
-    <v-row class="mt-2">
-      <v-col>
-        <v-btn v-if="loggedIn === 'user'" class="primary me-2 mb-2" @click="showTicket">
+    <v-row class="mt-5" justify="center">
+        <v-btn v-if="loggedIn === 'user'" class="primary mb-3 ms-5 me-3" @click="showTicket">
           Ticket anzeigen
         </v-btn>
-        <v-btn class="me-2 mb-2" @click="backToStart">
+        <v-btn class="mb-3 ms-5 me-3" @click="backToStart">
           Zurück zum Startbildschirm
         </v-btn>
-      </v-col>
     </v-row>
   </v-container>
 </template>

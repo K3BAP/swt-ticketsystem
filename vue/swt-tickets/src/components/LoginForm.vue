@@ -19,10 +19,10 @@
             </v-text-field>
           </v-col>
           <v-col>
-            <v-btn class="primary me-1" @click="loginUser">
+            <v-btn class="primary mb-3 ms-1 me-1" @click="loginUser">
               User Login
             </v-btn>
-            <v-btn class="primary me-1" @click="loginAdmin">
+            <v-btn class="primary mb-3 ms-1 me-1" @click="loginAdmin">
               Admin Login
             </v-btn>
           </v-col>
