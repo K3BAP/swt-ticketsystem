@@ -4,6 +4,9 @@
 
 <script>
 export default {
-  name: 'ShowTicketView'
+  name: 'ShowTicketView',
+  created () {
+    console.log(this.$route.params)
+  }
 }
 </script>

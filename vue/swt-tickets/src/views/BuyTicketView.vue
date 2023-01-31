@@ -36,7 +36,7 @@
           <v-row class="pa-3">
             <v-btn v-if="stage <3" @click="prev">zurück</v-btn>
             <v-spacer/>
-            <v-btn v-if="stage === 0" class="primary" @click="next">direkt zur Tarifauswahl</v-btn>
+            <v-btn v-if="stage === 0" class="primary" @click="next">überspringen</v-btn>
             <v-btn v-if="stage === 1" class="primary" @click="next">weiter</v-btn>
           </v-row>
         </v-container>
