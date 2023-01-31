@@ -1,12 +1,17 @@
 <template>
-<h1>Hier wird ein Ticket angezeigt.</h1>
+<h1>Hier wird ein Ticket angezeigt. {{ ticket.type }}</h1>
 </template>
 
 <script>
 export default {
   name: 'ShowTicketView',
+  data () {
+    return {
+      ticket: null
+    }
+  },
   created () {
-    console.log(this.$route.params)
+    this.ticket = this.$route.params.ticket
   }
 }
 </script>

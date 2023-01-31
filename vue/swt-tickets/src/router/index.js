@@ -44,7 +44,8 @@ const routes = [
   {
     path: '/ticket',
     name: 'ticket',
-    component: () => import('../views/ShowTicketView.vue')
+    component: () => import('../views/ShowTicketView.vue'),
+    props: true
   }
 ]
 
