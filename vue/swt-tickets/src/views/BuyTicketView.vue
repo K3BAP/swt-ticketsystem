@@ -29,7 +29,7 @@
         <v-container>
           <v-row class="pa-3">
             <ChooseConnectionForm v-if="stage === 0" :connections="connections" @gotoTarife="gotoTarife($event)"/>
-            <ChooseTarifForm v-if="stage === 1" :initial-time="selectedTime" :initial-start="selectedStartZone" :initial-end="selectedEndZone"/>
+            <ChooseTarifForm ref="chooseTarifForm" v-if="stage === 1" :initial-time="selectedTime" :initial-start="selectedStartZone" :initial-end="selectedEndZone"/>
             <PayForm v-if="stage === 2" @success="next" :logged-in="loggedIn"/>
             <PaySuccessForm v-if="stage === 3" :loggedIn="loggedIn" @showTicket="showTicketClick"/>
           </v-row>
@@ -37,7 +37,7 @@
             <v-btn v-if="stage <3" @click="prev">zurück</v-btn>
             <v-spacer/>
             <v-btn v-if="stage === 0" class="primary" @click="next">überspringen</v-btn>
-            <v-btn v-if="stage === 1" class="primary" @click="next">weiter</v-btn>
+            <v-btn v-if="stage === 1" class="primary" @click="validateChooseTarif">weiter</v-btn>
           </v-row>
         </v-container>
       </v-card>
@@ -154,6 +154,9 @@ export default {
         name: 'ticket',
         params: { ticket: ticket }
       })
+    },
+    validateChooseTarif () {
+      if (this.$refs.chooseTarifForm.validate()) this.next()
     }
   },
   props: ['beginStage', 'loggedIn'],
