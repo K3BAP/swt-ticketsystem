@@ -39,7 +39,8 @@ export default {
         {
           type: '4-Fahrten-Ticket',
           fromZone: 'Zone 1',
-          toZone: 'Zone 2'
+          toZone: 'Zone 2',
+          ridesLeft: '2/4'
         }
       ]
     }

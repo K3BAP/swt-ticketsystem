@@ -20,6 +20,9 @@
         <v-col v-if="ticket.expiration != null" cols="6" class="text-right">
           <div><span class="text--secondary">Gültig bis: <br class="hidden-sm-and-up"/></span> {{ ticket.expiration }}</div>
         </v-col>
+        <v-col v-if="ticket.ridesLeft != null" cols="6" class="text-right">
+          <div><span class="text--secondary">Fahrten verbleibend: <br class="hidden-sm-and-up"/></span> {{ ticket.ridesLeft }}</div>
+        </v-col>
       </v-row>
     </v-container>
   </v-card>
